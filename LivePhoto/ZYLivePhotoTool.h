@@ -27,7 +27,9 @@
                           imageName:(NSString *)imgName
                           handleImg:(void(^)(UIImage *originImage,NSString *imagePath,NSError *error))handle;
 
-- (void)saveLivePhotoWithVideoPath:(NSString *)videoPath imagePath:(NSString *)imagePath;
+- (void)saveLivePhotoWithVideoPath:(NSString *)videoPath
+                         imagePath:(NSString *)imagePath
+                            handle:(void(^)(BOOL,NSError *))saveHandle;
 
 
 

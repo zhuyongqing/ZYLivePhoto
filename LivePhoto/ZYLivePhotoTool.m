@@ -251,7 +251,7 @@ static ZYLivePhotoTool *tool = nil;
     return item;
 }
 
-- (void)saveLivePhotoWithVideoPath:(NSString *)videoPath imagePath:(NSString *)imagePath{
+- (void)saveLivePhotoWithVideoPath:(NSString *)videoPath imagePath:(NSString *)imagePath handle:(void(^)(BOOL,NSError *))saveHandle{
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
         PHAssetCreationRequest *creationRequest = [PHAssetCreationRequest creationRequestForAsset];
         PHAssetResourceCreationOptions *options = [[PHAssetResourceCreationOptions alloc] init];
@@ -260,7 +260,7 @@ static ZYLivePhotoTool *tool = nil;
         [creationRequest addResourceWithType:PHAssetResourceTypePhoto fileURL:[NSURL fileURLWithPath:imagePath] options:options];
         
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
-        NSLog(@"%d,%@",success,error.localizedDescription);
+        saveHandle(success,error);
     }];
 }
 

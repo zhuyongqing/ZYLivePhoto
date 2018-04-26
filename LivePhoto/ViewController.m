@@ -39,7 +39,10 @@
         
         [[ZYLivePhotoTool shareTool] generatorLivePhotoWithAsset:asset originImgPath:imagePath livePhotoImgPath:newImgPath livePhotoVideoPath:newVideoPath handleLivePhoto:^(PHLivePhoto *livePhoto) {
             photoView.livePhoto = livePhoto;
-            //        [[ZYLivePhotoTool shareTool] saveLivePhotoWithVideoPath:newVideoPath imagePath:newImgPath];
+            
+//            [[ZYLivePhotoTool shareTool] saveLivePhotoWithVideoPath:newVideoPath imagePath:newImgPath handle:^(BOOL success, NSError *error) {
+//                
+//            }];
         }];
     }];
 }
