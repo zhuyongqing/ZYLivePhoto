@@ -221,7 +221,6 @@ static ZYLivePhotoTool *tool = nil;
         });
     });
     
-    
     while (writer.status == AVAssetWriterStatusWriting) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
     }
